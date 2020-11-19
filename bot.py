@@ -1,46 +1,19 @@
 # bot.py
-import os
-import random
-import discord
+# bot created by Francesco L.C. in association with nkaaf
+import os                               #Cogs allows me to actually keep the main bot tidy
+import discord                          #Im only importing libs needed to run the bot. Inside cogs all the libs are loaded
+
+from discord.ext import commands
 from dotenv import load_dotenv
-from discord.ext import commands, tasks
-intents = discord.Intents.default()
-intents.members = True  # Subscribe to the privileged members intent.
-bot = commands.Bot(command_prefix='!', intents=intents)
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
 
-client = discord.Client(intents=intents)
-#channel = client.get_channel(769940971038310422)
-@client.event
-async def on_ready():
-    print(f'{client.user.name} has connected to Discord!')
+intents = discord.Intents.default()     #Subs to intent
+client = commands.Bot(command_prefix='!', intents=intents)  #cmd prefix is set
 
+load_dotenv()                           #.env file containing token is loaded
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    if 'givecat' in message.content:
-        await message.channel.send(file=discord.File(r"/home/DiscordBot/catpics/" + (random.choice(os.listdir(r"/home/DiscordBot/catpics/")))))
-    if 'this bot sucks' in message.content:
-        await message.channel.send(f'{message.author.mention} sucks')
-    if 'tell a joke' in message.content:
-        await message.channel.send('<@209748800057638914>')
-    if 'pet cat' in message.content:
-        await message.channel.send('''purrr... the cat liked it''')
+TOKEN = os.getenv('DISCORD_TOKEN')      #Token string is given to TOKEN variable
 
-#@client.event
-#class CustomClient(discord.Client):
-#    async def on_ready(self):
-#        #guild = discord.utils.get(client.guilds, name=GUILD)
-#        print(
-#            f'{self.user} has connected to Discord!'
-            #f'{client.user} is connected to the following guild:\n'
-            #f'{guild.name}(id: {guild.id})'
-#        )
-        #members = '\n - ' .join([member.name for member in guild.members])
-        #print(f'Guild Members:\n - {members}')
+client.load_extension("cogs.MusicCommands") #juicy part. cogs are loaded into the bot
+client.load_extension("cogs.CatCommands")   #more functionalities require more code. with cogs you keep the overview
 
-#client = CustomClient()
-client.run(TOKEN)
+client.run(TOKEN)                           #token is used to authenticate the bot and actually run it
