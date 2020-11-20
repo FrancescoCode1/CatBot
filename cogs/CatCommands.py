@@ -30,7 +30,7 @@ class CatCommands(commands.Cog):
     @commands.command(name='status')
     async def on_status_request(self, ctx):
         async with aiohttp.ClientSession() as session:
-            async with session.get('https://api.mcsrvstat.us/2/62.104.69.117') as r:
+            async with session.get('https://api.mcsrvstat.us/2/sampleip') as r:
                 if r.status == 200:
                     js = await r.json()
                     if js['online']:
