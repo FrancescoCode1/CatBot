@@ -14,6 +14,7 @@ class CatCommands(commands.Cog):
 
     @commands.command(name='givecat')
     async def on_givecat(self, ctx):
+        """Sends a random cat picture to the channel"""
         await ctx.send(file=discord.File(random.choice(glob.glob(CAT_DIR + '/*'))))
 
 
@@ -24,13 +25,15 @@ class CatCommands(commands.Cog):
 
     @commands.command(name='pet_cat')
     async def on_pet_cat(self, ctx):
+        """Come on, you have to"""
         await ctx.send('''purrr... the cat liked it''')
 
 
     @commands.command(name='status')
     async def on_status_request(self, ctx):
+        """Gets status of the MC server"""
         async with aiohttp.ClientSession() as session:
-            async with session.get('https://api.mcsrvstat.us/2/sampleip') as r:
+            async with session.get('https://api.mcsrvstat.us/2/62.104.69.117') as r:
                 if r.status == 200:
                     js = await r.json()
                     if js['online']:
@@ -44,7 +47,13 @@ class CatCommands(commands.Cog):
                                         value=str(js['players']['online']) + '/' + str(js['players']['max']))
                     await ctx.send(embed=embed)
                 else:
-                    await ctx.send("Dump programmer uses false URL")
+                    await ctx.send("This aint supposed to happen")
+
+    @commands.command(name='setembed')
+    @commands.is_owner()
+    async def on_setembed(self, message):
+
+        """placeholder, add your embed here if you want one"""
 
 
 
