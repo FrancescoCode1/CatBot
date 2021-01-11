@@ -27,6 +27,18 @@ class CatCommands(commands.Cog):
     async def on_pet_cat(self, ctx):
         """Come on, you have to"""
         await ctx.send('''purrr... the cat liked it''')
+        
+    @commands.command(name='stats')
+    async def onStats(self, ctx, player):
+        data = urllib.request.urlopen(f"http://plstats.plplatoon.com/?p={player}").read()
+        output = json.loads(data)
+        stats = output[0]
+        embed = discord.Embed(title=f"Latest PL server stats for {player}", color=0x0a0eff)
+        embed.add_field(name='Kills', value=str(stats['Kills']), inline=False)
+        embed.add_field(name="Deaths", value=str(stats['Deaths']), inline=False)
+        embed.add_field(name="Headshots", value=str(stats["Headshots"]), inline=False)
+        embed.add_field(name="Killstreak", value=str(stats["Killstreak"]), inline=False)
+        await ctx.send(embed=embed)
 
 
     @commands.command(name='status')
