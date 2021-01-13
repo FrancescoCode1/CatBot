@@ -1,0 +1,11 @@
+pip install discord.py
+pip install aiohttp
+pip install menus
+pip install dotenv-python
+pip install wavelink
+pip install threading
+pip install glob
+pip install async_timeout
+pip install re
+pip install typing
+pip install math
