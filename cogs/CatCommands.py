@@ -40,12 +40,12 @@ class CatCommands(commands.Cog):
         embed.add_field(name="Killstreak", value=str(stats["Killstreak"]), inline=False)
         await ctx.send(embed=embed)
 
-
+    #Basic MC server Checker, can be useful if you have an mc community server. might add autocheck to check in interval
     @commands.command(name='status')
     async def on_status_request(self, ctx):
         """Gets status of the MC server"""
         async with aiohttp.ClientSession() as session:
-            async with session.get('https://api.mcsrvstat.us/2/62.104.69.117') as r:
+            async with session.get('https://api.mcsrvstat.us/2/insert-ip-here') as r:
                 if r.status == 200:
                     js = await r.json()
                     if js['online']:
