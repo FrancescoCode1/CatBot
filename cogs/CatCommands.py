@@ -6,7 +6,7 @@ import os
 import random
 import glob
 CAT_DIR = os.getenv('CAT_DIRlin')
-
+#Adding triple quotation marks below definition of a function creates description for the command in "!help" command
 
 class CatCommands(commands.Cog):
     def __init__(self, bot):
