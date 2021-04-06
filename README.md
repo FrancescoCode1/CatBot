@@ -13,7 +13,11 @@ Currently it's divided into 3 parts
  
 - !play {youtube} #plays music from youtube link in voice channel
 
-### Soon: big moderation update which will include usual kick/ban/mute commands and extensive spam/raid protection
+### Moderation update is now live. Basic commands like kick, ban and tban will worl
+
+- !kick
+- !ban
+- !tban
 
 - You can type !help to see a list of all commands + description
 
@@ -21,4 +25,4 @@ How to run this bot
 -
 This bot is written in python using [Discord.py](https://github.com/Rapptz/discord.py) library. Additionally you'll need Java jdk13 and [Lavalink](https://github.com/Frederikam/Lavalink) for the music stuff.
 
-If you host it yourself make sure to edit the linux stuff out. Hosting on cloud is strongly recommended
+If you host it yourself make sure to edit the linux stuff out (deprecated). Hosting on cloud is strongly recommended
