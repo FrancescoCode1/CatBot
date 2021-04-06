@@ -22,13 +22,13 @@ class CatCommands(commands.Cog):
     async def on_bot_insult(self, ctx):
         await ctx.send(f'{ctx.author.mention} sucks')
 
-
-    @commands.command(name='pet_cat')
+    #ToDo: add working tamagochi like mini game
+    """@commands.command(name='pet_cat')
     async def on_pet_cat(self, ctx):
-        """Come on, you have to"""
+        Come on, you have to
         await ctx.send('''purrr... the cat liked it''')
-        #need cat api
-
+        #need cat api"""
+    #Todo: import image manipulation from repzbot
     @commands.command(name='stats')
     async def on_stats(self, playername, ctx):
         """Get stats from PLP"""
@@ -45,7 +45,7 @@ class CatCommands(commands.Cog):
                     await ctx.send("Something went wrong")
 
 
-
+    #add your own IP
     @commands.command(name='status')
     async def on_status_request(self, ctx):
         """Gets status of the MC server"""
