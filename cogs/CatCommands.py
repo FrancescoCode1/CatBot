@@ -5,7 +5,7 @@ import discord
 import os
 import random
 import glob
-CAT_DIR = os.getenv('CAT_DIRlin')
+CAT_DIR = os.getenv('CAT_DIR')
 
 
 class CatCommands(commands.Cog):
@@ -70,22 +70,7 @@ class CatCommands(commands.Cog):
     @commands.is_owner()
     async def on_setembed(self, message):
 
-        embed = discord.Embed(title="Willkommen auf dem APACHE HELICOPTER Discord", colour=discord.Colour(0x8f3b4d),
-                                  description="Wir sind ein CS:GO und Minecraft Gaming Server mit :heart:",
-                                  timestamp=datetime.datetime.utcfromtimestamp(1605357933))
-
-        embed.set_image(url="https://steamcdn-a.akamaihd.net/steam/apps/730/header.jpg?t=1604621473")
-        embed.set_thumbnail(url="https://images-eu.ssl-images-amazon.com/images/I/512dVKB22QL._AC_UL600_SR600,600_.png")
-        embed.set_author(name="FD", url="https://discordapp.com",
-                             icon_url="https://cdn.discordapp.com/embed/avatars/0.png")
-        embed.set_footer(text="FD", icon_url="https://cdn.discordapp.com/embed/avatars/0.png")
-
-        embed.add_field(name="Rollen", value="Zurzeit gibt es nur die @APACHEN Rolle fÃ¼r Member", inline=False)
-        embed.add_field(name="Zum Bot",
-                            value="Der CatBot ist eine eigene Entwicklung und wird durchgehend mit Funktionen erweitert",
-                            inline=False)
-        embed.add_field(name="Links:",
-                            value="[Steamgruppe](https://steamcommunity.com/groups/CodeAphe)\n[Neues Survival-Spiel von befreundeten Devs](https://store.steampowered.com/app/1090800/Northern_Lights/)")
+        #add your own here
 
         await message.channel.send(embed=embed)
 
