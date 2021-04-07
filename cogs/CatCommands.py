@@ -47,24 +47,27 @@ class CatCommands(commands.Cog):
 
 
     @commands.command(name='status')
-    async def on_status_request(self, ctx):
+    async def on_status_request(self, ctx, server=None):
         """Gets status of the MC server"""
         async with aiohttp.ClientSession() as session:
-            async with session.get('https://api.mcsrvstat.us/2/93.135.169.27') as r:
-                if r.status == 200:
-                    js = await r.json()
-                    if js['online']:
-                        color = 0x008000
+            try:
+                async with session.get(f'https://api.mcsrvstat.us/2/{server}') as r:
+                    if r.status == 200:
+                        js = await r.json()
+                        if js['online']:
+                            color = 0x008000
+                        else:
+                            color = 0xFF0000
+                        embed = discord.Embed(title='Server Stats', description=js['ip'], color=color)
+                        embed.add_field(name='Server Up?', value=str(js['online']))
+                        if js['online']:
+                            embed.add_field(name='Players online',
+                                            value=str(js['players']['online']) + '/' + str(js['players']['max']))
+                        await ctx.send(embed=embed)
                     else:
-                        color = 0xFF0000
-                    embed = discord.Embed(title='Server Stats', description=js['ip'], color=color)
-                    embed.add_field(name='Server Up?', value=str(js['online']))
-                    if js['online']:
-                        embed.add_field(name='Players online',
-                                        value=str(js['players']['online']) + '/' + str(js['players']['max']))
-                    await ctx.send(embed=embed)
-                else:
-                    await ctx.send("This aint supposed to happen")
+                        await ctx.send("This aint supposed to happen")
+            except:
+                ctx.send("please enter a valid IP")
 
     @commands.command(name='setembed')
     @commands.is_owner()
