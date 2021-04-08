@@ -18,7 +18,7 @@ Currently it's divided into 3 parts
 - !kick
 - !ban
 - !tban
-
+- (Planned: massive overhaul + user cards --> user info et alia.))
 - You can type !help to see a list of all commands + description
 
 How to run this bot
