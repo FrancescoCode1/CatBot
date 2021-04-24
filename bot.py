@@ -14,9 +14,15 @@ load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-client.load_extension("cogs.MusicCommands")
+#client.load_extension("cogs.MusicCommands")
 client.load_extension("cogs.CatCommands")
-client.load_extension("cogs.adminCommands")
-client.run(TOKEN)
+client.load_extension("cogs.AdminCommands")
+client.load_extension("cogs.socials")
+client.load_extension("cogs.webhooks")
+def main():
+    client.run(TOKEN)
+
+if __name__ == '__main__':
+    main()
 
 
