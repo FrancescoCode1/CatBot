@@ -65,7 +65,7 @@ class CatCommands(commands.Cog):
                                             value=str(js['players']['online']) + '/' + str(js['players']['max']))
                         await ctx.send(embed=embed)
                     else:
-                        await ctx.send("This aint supposed to happen")
+                        await ctx.send("Something went wrong, please check the logs!")
             except:
                 ctx.send("please enter a valid IP")
 
