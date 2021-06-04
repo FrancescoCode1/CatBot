@@ -36,7 +36,6 @@ class Track(wavelink.Track):
 
 
 class Player(wavelink.Player):
-    """If ya steal my code imma fuck you up."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
