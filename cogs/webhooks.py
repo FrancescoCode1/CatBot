@@ -5,7 +5,7 @@ import aiohttp
 class webhooks(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
+    #this is just for testing purposes
     @commands.command(name="git")
     async def on_git(self, ctx):
         async with aiohttp.ClientSession() as session:
