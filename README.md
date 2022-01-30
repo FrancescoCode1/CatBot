@@ -1,4 +1,8 @@
-# CatBot
+# Important Notice
+I'm not working on this bot anymore. All functionalities are currently ported to [hikari](https://github.com/hikari-py/hikari) + [lightbulb](https://github.com/tandemdude/hikari-lightbulb) a new Discord API and its command handler. I'll probably create a new repository for it.
+
+
+## CatBot
 This is my Discord Bot. I developed it to be more independend. It served me quite well and I add features based on my own demand.
 
 Currently it's divided into 3 parts
